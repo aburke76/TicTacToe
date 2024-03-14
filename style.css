@@ -35,7 +35,46 @@ body {
 }
 
 #gameboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 25px;
+    padding-top: 50px;
+}
+
+.square {
+    height: 100px;
+    width: 100px;
     border: 1px solid var(--main-dark-color);
+}
+
+#square-0 {
+    border-top: none;
+    border-left: none;
+}
+#square-1 {
+    border-top: none;
+}
+#square-2 {
+    border-right: none;
+    border-top: none;
+}
+#square-3 {
+    border-left: none;
+}
+#square-5 {
+    border-right: none;
+}
+#square-6 {
+    border-left: none;
+    border-bottom: none;
+}
+#square-7 {
+    border-bottom: none;
+}
+#square-8 {
+    border-right: none;
+    border-bottom: none;
 }
 
 footer {
