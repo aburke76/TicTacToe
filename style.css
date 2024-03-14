@@ -1,12 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
 * {
     box-sizing: border-box;
 }
 
+:root {
+    --main-bg-color: #40798c;
+    --main-dark-color: #0b2027;
+    --text-color: #cfd7c7;
+    --button-color: #70a9a1;
+}
+
+h1:first-of-type {
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--main-dark-color);
+    color: var(--text-color);
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 body {
-    font-family: "Roboto", sans-serif;
     display: flex;
+    background-color: var(--main-bg-color);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -15,11 +34,16 @@ body {
     margin: 0;
 }
 
+#gameboard-container {
+    border: 1px solid var(--main-dark-color);
+}
+
 footer {
     margin-top: auto;
     display: flex;
+    width: 100%;
     justify-content: center;
-    background-color: rgba(167, 167, 167, 0.479);
-    border-top: 2px solid black;
-    padding: 10px;
+    background-color: var(--main-dark-color);
+    border-top: 2px solid var(--main-dark-color);
+    color: var(--text-color);
 }
