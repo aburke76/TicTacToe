@@ -155,3 +155,5 @@ const Game = () => {
         makeUnclickable();
     });
 };
+
+makeUnclickable();
