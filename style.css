@@ -2,27 +2,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    --main-bg-color: #40798c;
-    --main-dark-color: #0b2027;
-    --text-color: #cfd7c7;
-    --button-color: #70a9a1;
-}
-
-h1:first-of-type {
-    color: var(--text-color);
-}
-
-button {
-    background-color: var(--main-dark-color);
-    color: var(--text-color);
-    border-radius: 5px;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
 body {
     display: flex;
     background-color: var(--main-bg-color);
@@ -32,19 +11,72 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: 0;
+    font-family: "Arvo", sans-serif;
+}
+
+:root {
+    --main-bg-color: #40798c;
+    --main-dark-color: #0b2027;
+    --text-color: #cfd7c7;
+    --button-color: #70a9a1;
+}
+
+h1:first-of-type {
+    color: var(--text-color);
+    text-shadow: var(--main-dark-color) 8px 8px 5px;
+}
+
+input {
+    border-color: var(--main-dark-color) var(--button-color)
+        var(--main-dark-color) var(--button-color);
+}
+
+button {
+    background-color: var(--main-dark-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#reset {
+    background-color: var(--button-color);
+    color: var(--main-dark-color);
+}
+
+.get-started {
+    display: grid;
+    gap: 5px;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+input {
+    width: 10rem;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.disabled:hover {
+    cursor: not-allowed;
 }
 
 #turn-tracker {
     color: var(--text-color);
-    margin-top: 10px;
+    margin: 20px 0;
+    font-weight: 700;
+    font-size: larger;
 }
 
 #gameboard-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    margin-top: 25px;
-    padding-top: 50px;
     gap: 5px;
 }
 
@@ -61,31 +93,31 @@ body {
     cursor: pointer;
 }
 
-#square-0 {
+[data-cell="1"] {
     border-top: none;
     border-left: none;
 }
-#square-1 {
+[data-cell="2"] {
     border-top: none;
 }
-#square-2 {
+[data-cell="3"] {
     border-right: none;
     border-top: none;
 }
-#square-3 {
+[data-cell="4"] {
     border-left: none;
 }
-#square-5 {
+[data-cell="6"] {
     border-right: none;
 }
-#square-6 {
+[data-cell="7"] {
     border-left: none;
     border-bottom: none;
 }
-#square-7 {
+[data-cell="8"] {
     border-bottom: none;
 }
-#square-8 {
+[data-cell="9"] {
     border-right: none;
     border-bottom: none;
 }
