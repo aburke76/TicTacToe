@@ -9,6 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: auto;
     overflow: hidden;
     margin: 0;
     font-family: "Arvo", sans-serif;
@@ -71,6 +72,9 @@ input {
     margin: 20px 0;
     font-weight: 700;
     font-size: larger;
+    padding: 0 1rem;
+    text-align: center;
+    text-wrap: wrap;
 }
 
 #gameboard-container {
