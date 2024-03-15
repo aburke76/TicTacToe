@@ -23,7 +23,34 @@ const Game = (() => {
     const player1 = Player(document.querySelector("#player1").value, "X");
     const player2 = Player(document.querySelector("#player2").value, "O");
     let currentPlayer = player1;
+    const switchPlayer = () => {
+        currentPlayer == player1
+            ? (currentPlayer = player2)
+            : (currentPlayer = player1);
+    };
     //create eventListeners on board, start new round after every click
-    //check is cell is empty. if so, add player marker to cell on gameboard, new round
-    //check gameboard for a win for currentPlayer, or draw. if no win, switch players
+    const cell = document.querySelectorAll(".square");
+    cell.forEach((el) => {
+        el.addEventListener("click", () => {
+            //check is cell is empty. if so, add player marker to cell on gameboard, new round
+            if (!el.textContent) {
+                el.textContent = currentPlayer.marker;
+            } else {
+                return false;
+            }
+            //update array
+            let currentCell = el.id;
+            for (let i = 0; i < Gameboard.gameboard.length; i++) {
+                for (let j = 0; j < Gameboard.gameboard[i].length; j++) {
+                    let stringsIJ = i + "-" + j;
+                    if (currentCell == stringsIJ) {
+                        Gameboard.gameboard[i][j] = currentPlayer.marker;
+                    }
+                }
+            }
+            //check gameboard for a win for currentPlayer, or draw. if no win, switch players
+            let winningCombinations = [[]];
+            switchPlayer();
+        });
+    });
 })();
