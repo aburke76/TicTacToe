@@ -45,12 +45,20 @@ body {
     grid-template-rows: 1fr 1fr 1fr;
     margin-top: 25px;
     padding-top: 50px;
+    gap: 5px;
 }
 
 .square {
     height: 100px;
     width: 100px;
-    border: 1px solid var(--main-dark-color);
+    border: 3px solid var(--main-dark-color);
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+}
+
+.square:hover {
+    cursor: pointer;
 }
 
 #square-0 {
