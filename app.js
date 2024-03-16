@@ -39,6 +39,7 @@ startBtn.addEventListener("click", () => {
 });
 
 const Game = () => {
+    let currentPlayer;
     let allPlays = [];
     const resetBtn = document.querySelector("#reset");
     resetBtn.disabled = true;
@@ -52,24 +53,23 @@ const Game = () => {
     if (!player2Name) {
         player2Name = "Player 2";
     }
-    const player1 = Player(player1Name, "X", []);
-    const player2 = Player(player2Name, "O", []);
-    let currentPlayer = player1;
+    let player1 = Player(player1Name, "X", []);
+    let player2 = Player(player2Name, "O", []);
     turnTracker.textContent = `${player1Name} vs ${player2Name}...game on! ${player1Name} goes first.`;
     startBtn.disabled = true;
     startBtn.classList.add("disabled");
-    //create eventListeners on board, start new round after every click
+    currentPlayer = player1;
+    console.log("before click", player1.name, player2.name);
 
     cell.forEach((el) => {
         el.addEventListener("click", () => {
+            console.log("after click", player1.name, player2.name);
             el.disabled = false;
-            //check is cell is empty. if so, add player marker to cell on gameboard, new round
             if (!el.textContent) {
                 el.textContent = currentPlayer.marker;
             } else {
                 return false;
             }
-            //update array
             let currentCell = el.id;
             for (let i = 0; i < Gameboard.gameboard.length; i++) {
                 for (let j = 0; j < Gameboard.gameboard[i].length; j++) {
@@ -83,14 +83,11 @@ const Game = () => {
                 currentPlayer == player1
                     ? (currentPlayer = player2)
                     : (currentPlayer = player1);
-                console.log(currentPlayer.name);
                 turnTracker.textContent = `${currentPlayer.name}'s turn!`;
             };
-            //check gameboard for a win for currentPlayer, or draw. if no win, switch players
             let cellNumber = el.dataset.cell;
             currentPlayer.plays.push(cellNumber);
             allPlays.push(cellNumber);
-            console.log(allPlays);
             if (
                 //horizontal
                 (currentPlayer.plays.includes("1") &&
@@ -127,7 +124,6 @@ const Game = () => {
                 makeUnclickable();
                 return false;
             }
-            //figure out it there's a draw
             if (allPlays.length == 9) {
                 turnTracker.textContent =
                     "It's a draw! Press reset to play again!";
@@ -152,6 +148,9 @@ const Game = () => {
         turnTracker.textContent = "Enter Names and Press Start to Begin!";
         document.querySelector("#player1").value = "";
         document.querySelector("#player2").value = "";
+        player1 = null;
+        player2 = null;
+        console.log("reset click", player1.name, player2.name);
         makeUnclickable();
     });
 };
