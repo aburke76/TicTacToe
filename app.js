@@ -117,7 +117,7 @@ const Game = () => {
                     currentPlayer.plays.includes("5") &&
                     currentPlayer.plays.includes("7"))
             ) {
-                turnTracker.textContent = `${currentPlayer.name} wins! Press reset to play again!`;
+                turnTracker.textContent = `${currentPlayer.name} wins! Press restart to play again!`;
                 resetBtn.disabled = false;
                 resetBtn.classList.remove("disabled");
                 allPlays = [];
